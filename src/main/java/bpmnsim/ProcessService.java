@@ -1,6 +1,5 @@
 package bpmnsim;
 
-import org.jbpm.test.JBPMHelper;
 import org.kie.api.KieBase;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
@@ -8,6 +7,7 @@ import org.kie.api.runtime.manager.RuntimeEnvironmentBuilder;
 import org.kie.api.runtime.manager.RuntimeManager;
 import org.kie.api.runtime.manager.RuntimeManagerFactory;
 import org.kie.api.runtime.process.ProcessInstance;
+import org.kie.internal.runtime.manager.context.EmptyContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +36,7 @@ public class ProcessService {
 
     public void runProcess(String processName) {
 
-        KieSession kieSession = runtimeManager.getRuntimeEngine(null).getKieSession();
+        KieSession kieSession = runtimeManager.getRuntimeEngine(EmptyContext.get()).getKieSession();
         try{
             ProcessInstance instance = kieSession.startProcess(processName);
         }catch (Exception e){
@@ -54,7 +54,7 @@ public class ProcessService {
                 .newDefaultBuilder().entityManagerFactory(emf)
                 .knowledgeBase(kbase);
         return RuntimeManagerFactory.Factory.get()
-                .newPerRequestRuntimeManager(builder.get(), "com.sample:example:1.0");
+                .newPerProcessInstanceRuntimeManager(builder.get(), "com.sample:example:1.0");
 
     }
 
