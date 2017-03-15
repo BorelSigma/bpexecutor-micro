@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" xmlns="http://www.jboss.org/drools" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd" id="_2ekVIJ0EEeaxsNpiOQYf7w" targetNamespace="http://www.jboss.org/drools">
+  <bpmn2:itemDefinition id="_Float" structureRef="Float"/>
+  <bpmn2:itemDefinition id="_Integer" structureRef="Integer"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1639" structureRef="java.lang.Math"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1642" structureRef="java.util.Random"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1646" structureRef="com.guwi.AlterMusicStub.Bither.Factory"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1647" structureRef="com.guwi.AlterMusicStub.Bither"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1650" structureRef="com.guwi.AlterMusicStub.Limiter.Factory"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1651" structureRef="com.guwi.AlterMusicStub.Limiter"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1654" structureRef="com.guwi.AlterMusicStub.BitherResponse.Factory"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1655" structureRef="com.guwi.AlterMusicStub.BitherResponse"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1658" structureRef="com.guwi.AlterMusicStub.Normalize.Factory"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1659" structureRef="com.guwi.AlterMusicStub.Normalize"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1662" structureRef="com.guwi.AlterMusicStub.ChangeSampleRateResponse.Factory"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1663" structureRef="com.guwi.AlterMusicStub.ChangeSampleRateResponse"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1666" structureRef="com.guwi.AlterMusicStub.AddFadingResponse.Factory"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1667" structureRef="com.guwi.AlterMusicStub.AddFadingResponse"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1670" structureRef="com.guwi.AlterMusicStub.LimiterResponse.Factory"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1671" structureRef="com.guwi.AlterMusicStub.LimiterResponse"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1674" structureRef="com.guwi.AlterMusicStub.NormalizeResponse.Factory"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1675" structureRef="com.guwi.AlterMusicStub.NormalizeResponse"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1678" structureRef="com.guwi.AlterMusicStub.ClearTMPFolder.Factory"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1679" structureRef="com.guwi.AlterMusicStub.ClearTMPFolder"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1682" structureRef="com.guwi.AlterMusicStub.SetNumberofChannels.Factory"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1683" structureRef="com.guwi.AlterMusicStub.SetNumberofChannels"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1686" structureRef="com.guwi.AlterMusicStub.SetNumberofChannelsResponse.Factory"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1687" structureRef="com.guwi.AlterMusicStub.SetNumberofChannelsResponse"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1690" structureRef="com.guwi.AlterMusicStub.GetTampNameResponse.Factory"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1691" structureRef="com.guwi.AlterMusicStub.GetTampNameResponse"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1694" structureRef="com.guwi.AlterMusicStub.ChangeSampleRate.Factory"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1695" structureRef="com.guwi.AlterMusicStub.ChangeSampleRate"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1697" structureRef="com.guwi.AlterMusicStub.ExtensionMapper"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1700" structureRef="com.guwi.AlterMusicStub.GetTampName.Factory"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1701" structureRef="com.guwi.AlterMusicStub.GetTampName"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1704" structureRef="com.guwi.AlterMusicStub.AddFading.Factory"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1705" structureRef="com.guwi.AlterMusicStub.AddFading"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1706" structureRef="com.guwi.AlterMusicStub"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_1854" structureRef="org.drools.core.io.impl.ByteArrayResource"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2054" structureRef="java.io.File"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2581" structureRef="java.io.FileOutputStream"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2583" structureRef="java.io.BufferedOutputStream"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2585" structureRef="java.io.FileInputStream"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2587" structureRef="java.io.BufferedInputStream"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2592" structureRef="javax.activation.DataHandler"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2594" structureRef="org.apache.axiom.attachments.ByteArrayDataSource"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2602" structureRef="com.guwi.altermusicstubs.AlterMusic"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2605" structureRef="com.guwi.altermusicstubs.SetNumberofChannels.Factory"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2606" structureRef="com.guwi.altermusicstubs.SetNumberofChannels"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2609" structureRef="com.guwi.altermusicstubs.SetNumberofChannelsResponse.Factory"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2610" structureRef="com.guwi.altermusicstubs.SetNumberofChannelsResponse"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2613" structureRef="com.guwi.altermusicstubs.AlterMusicStub"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2616" structureRef="com.guwi.altermusicstubs.Normalize.Factory"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2617" structureRef="com.guwi.altermusicstubs.Normalize"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2621" structureRef="com.guwi.altermusicstubs.NormalizeResponse.Factory"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2622" structureRef="com.guwi.altermusicstubs.NormalizeResponse"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2626" structureRef="com.guwi.altermusicstubs.Limiter.Factory"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2627" structureRef="com.guwi.altermusicstubs.Limiter"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2631" structureRef="com.guwi.altermusicstubs.LimiterResponse.Factory"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2632" structureRef="com.guwi.altermusicstubs.LimiterResponse"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2636" structureRef="com.guwi.altermusicstubs.ChangeSampleRate.Factory"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2637" structureRef="com.guwi.altermusicstubs.ChangeSampleRate"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2641" structureRef="com.guwi.altermusicstubs.ChangeSampleRateResponse.Factory"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2642" structureRef="com.guwi.altermusicstubs.ChangeSampleRateResponse"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2646" structureRef="com.guwi.altermusicstubs.Bither.Factory"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2647" structureRef="com.guwi.altermusicstubs.Bither"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2651" structureRef="com.guwi.altermusicstubs.BitherResponse.Factory"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2652" structureRef="com.guwi.altermusicstubs.BitherResponse"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2656" structureRef="com.guwi.altermusicstubs.AddFading.Factory"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2657" structureRef="com.guwi.altermusicstubs.AddFading"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2661" structureRef="com.guwi.altermusicstubs.AddFadingResponse.Factory"/>
+  <bpmn2:itemDefinition id="_ItemDefinition_2662" structureRef="com.guwi.altermusicstubs.AddFadingResponse"/>
+  <bpmn2:process id="MusicSampleSizeOnly" drools:version="1" drools:packageName="defaultPackage" drools:adHoc="false" name="alter music sample size only" isExecutable="true" processType="Public">
+    <bpmn2:extensionElements>
+      <drools:global identifier="normalize_value" type="Float"/>
+      <drools:global identifier="limiter_value" type="Float"/>
+      <drools:global identifier="sample_rate_value" type="Integer"/>
+      <drools:global identifier="channels_value" type="Integer"/>
+      <drools:global identifier="fading_value" type="Float"/>
+      <drools:global identifier="sample_size_value" type="Integer"/>
+      <drools:import name="java.util.Random"/>
+      <drools:global identifier="file" type="java.io.File"/>
+      <drools:import name="java.io.File"/>
+      <drools:import name="java.io.BufferedOutputStream"/>
+      <drools:import name="java.io.FileInputStream"/>
+      <drools:import name="java.io.BufferedInputStream"/>
+      <drools:import name="javax.activation.DataHandler"/>
+      <drools:import name="org.apache.axiom.attachments.ByteArrayDataSource"/>
+      <drools:import name="java.io.FileOutputStream"/>
+      <drools:import name="com.guwi.altermusicstubs.AlterMusic"/>
+      <drools:import name="com.guwi.altermusicstubs.SetNumberofChannels"/>
+      <drools:import name="com.guwi.altermusicstubs.SetNumberofChannelsResponse"/>
+      <drools:import name="com.guwi.altermusicstubs.AlterMusicStub"/>
+      <drools:import name="com.guwi.altermusicstubs.Normalize"/>
+      <drools:import name="com.guwi.altermusicstubs.NormalizeResponse"/>
+      <drools:import name="com.guwi.altermusicstubs.Limiter"/>
+      <drools:import name="com.guwi.altermusicstubs.LimiterResponse"/>
+      <drools:import name="com.guwi.altermusicstubs.ChangeSampleRate"/>
+      <drools:import name="com.guwi.altermusicstubs.ChangeSampleRateResponse"/>
+      <drools:import name="com.guwi.altermusicstubs.Bither"/>
+      <drools:import name="com.guwi.altermusicstubs.BitherResponse"/>
+      <drools:import name="com.guwi.altermusicstubs.AddFading"/>
+      <drools:import name="com.guwi.altermusicstubs.AddFadingResponse"/>
+    </bpmn2:extensionElements>
+    <bpmn2:scriptTask id="ScriptTask_2" name="Read data" scriptFormat="http://www.java.com/java">
+      <bpmn2:incoming>SequenceFlow_17</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
+      <bpmn2:script>System.out.println(&quot;read data&quot;);&#xD;
+file = new File((String) kcontext.getVariable(&quot;input&quot;)+(String) kcontext.getVariable(&quot;file_name&quot;));&#xD;
+byte[] data = new byte[(int) file.length()];&#xD;
+FileInputStream file_input_stream = new FileInputStream(file);&#xD;
+BufferedInputStream buffered_input_stream = new BufferedInputStream(file_input_stream);&#xD;
+buffered_input_stream.read(data);&#xD;
+buffered_input_stream.close();&#xD;
+kcontext.setVariable(&quot;data&quot;,data);&#xD;
+System.out.println(&quot;done&quot;);</bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:scriptTask id="ScriptTask_1" name="Generate random variable set" scriptFormat="http://www.java.com/java">
+      <bpmn2:incoming>SequenceFlow_16</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_17</bpmn2:outgoing>
+      <bpmn2:script>System.out.println(&quot;generate random variable set&quot;);&#xD;
+File file_list = new File((String) kcontext.getVariable(&quot;input&quot;));&#xD;
+Random rand = new Random();&#xD;
+String[] file_names = file_list.list();&#xD;
+int number_of_files = file_names.length;&#xD;
+int random_number = rand.nextInt(number_of_files);&#xD;
+System.out.println(&quot;Number of files: &quot;+number_of_files+&quot; Random Number is: &quot;+random_number); &#xD;
+kcontext.setVariable(&quot;file_name&quot;, file_names[random_number]);&#xD;
+rand = new Random();&#xD;
+channels_value = (rand.nextInt(1))+1;&#xD;
+System.out.println(&quot;Channels = &quot;+channels_value);&#xD;
+kcontext.setVariable(&quot;channels_value&quot;,channels_value);&#xD;
+kcontext.setVariable(&quot;normalize_value&quot;,new Float(rand.nextFloat()));&#xD;
+kcontext.setVariable(&quot;limiter_value&quot;,new Float(rand.nextFloat()));&#xD;
+kcontext.setVariable(&quot;fading_value&quot;,new Float(rand.nextFloat()));&#xD;
+kcontext.setVariable(&quot;sample_size_value&quot;,new Integer(8));&#xD;
+kcontext.setVariable(&quot;sample_rate_value&quot;,new Integer(rand.nextInt(3000)+2000));&#xD;
+System.out.println(&quot;done&quot;);</bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_17" drools:priority="1" name="" sourceRef="ScriptTask_1" targetRef="ScriptTask_2"/>
+    <bpmn2:scriptTask id="ScriptTask_9" name="Init Workflow-Parameter" scriptFormat="http://www.java.com/java">
+      <bpmn2:documentation id="Documentation_27">Text</bpmn2:documentation>
+      <bpmn2:incoming>SequenceFlow_10</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_16</bpmn2:outgoing>
+      <bpmn2:script>System.out.println(&quot;Init workflow parameter&quot;);&#xD;
+kcontext.setVariable(&quot;music_data_type&quot;, new String(&quot;audio/midi&quot;));&#xD;
+kcontext.setVariable(&quot;input&quot;, new String(&quot;./music_files/&quot;));&#xD;
+kcontext.setVariable(&quot;output&quot;, new String(&quot;./results/&quot;));&#xD;
+kcontext.setVariable(&quot;tmp_dir&quot;, new String(&quot;./tmp/&quot;));&#xD;
+kcontext.setVariable(&quot;normalize_webservice_url&quot;, new String(&quot;http://localhost:8080/AlterMusicWS/services/AlterMusic&quot;));&#xD;
+kcontext.setVariable(&quot;limiter_webservice_url&quot;, new String(&quot;http://localhost:8080/AlterMusicWS/services/AlterMusic&quot;));&#xD;
+kcontext.setVariable(&quot;sample_rate_webservice_url&quot;, new String(&quot;http://localhost:8080/AlterMusicWS/services/AlterMusic&quot;));&#xD;
+kcontext.setVariable(&quot;channels_webservice_url&quot;, new String(&quot;http://localhost:8080/AlterMusicWS/services/AlterMusic&quot;));&#xD;
+kcontext.setVariable(&quot;fading_webservice_url&quot;, new String(&quot;http://localhost:8080/AlterMusicWS/services/AlterMusic&quot;));&#xD;
+kcontext.setVariable(&quot;sample_size_webservice_url&quot;, new String(&quot;http://localhost:8080/AlterMusicWS/services/AlterMusic&quot;));&#xD;
+System.out.println(&quot;done&quot;);</bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_16" drools:priority="1" name="" sourceRef="ScriptTask_9" targetRef="ScriptTask_1"/>
+    <bpmn2:startEvent id="StartEvent_3" name="">
+      <bpmn2:outgoing>SequenceFlow_10</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_10" drools:priority="1" name="" sourceRef="StartEvent_3" targetRef="ScriptTask_9"/>
+    <bpmn2:scriptTask id="ScriptTask_10" name="write data">
+      <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_15</bpmn2:outgoing>
+      <bpmn2:script>System.out.println(&quot;write data&quot;);&#xD;
+rand = new Random();&#xD;
+String tmp = (String) kcontext.getVariable(&quot;output&quot;)+rand.nextInt()+(String)kcontext.getVariable(&quot;file_name&quot;);&#xD;
+file_output_stream = new FileOutputStream(tmp);&#xD;
+buffered_output_stream = new BufferedOutputStream(file_output_stream);&#xD;
+byte[] data = (byte[]) kcontext.getVariable(&quot;data&quot;);&#xD;
+buffered_output_stream.write(data);&#xD;
+buffered_output_stream.close();&#xD;
+System.out.println(&quot;done&quot;);</bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_15" drools:priority="1" name="" sourceRef="ScriptTask_10" targetRef="EndEvent_3"/>
+    <bpmn2:endEvent id="EndEvent_3" name="">
+      <bpmn2:incoming>SequenceFlow_15</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:scriptTask id="ScriptTask_8" name="sample size" scriptFormat="http://www.java.com/java">
+      <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
+      <bpmn2:script>System.out.println(&quot;sample size&quot;);&#xD;
+byte[] data = (byte[]) kcontext.getVariable(&quot;data&quot;);&#xD;
+AlterMusicStub stub = new AlterMusicStub((String) kcontext.getVariable(&quot;sample_size_webservice_url&quot;));&#xD;
+Bither req = new Bither();&#xD;
+req.setSample_size((Integer)kcontext.getVariable(&quot;sample_size_value&quot;));&#xD;
+req.setFile_name((String) kcontext.getVariable(&quot;file_name&quot;));&#xD;
+req.setData(new DataHandler(new ByteArrayDataSource(data,(String) kcontext.getVariable(&quot;music_data_type&quot;))));&#xD;
+BitherResponse resp = stub.bither(req);&#xD;
+Random rand = new Random();&#xD;
+int rand_name = rand.nextInt();&#xD;
+FileOutputStream file_output_stream = new FileOutputStream((String) kcontext.getVariable(&quot;tmp_dir&quot;)+rand_name);&#xD;
+resp.get_return().writeTo(file_output_stream);&#xD;
+BufferedOutputStream buffered_output_stream = new BufferedOutputStream(file_output_stream);&#xD;
+buffered_output_stream.flush();&#xD;
+buffered_output_stream.close();&#xD;
+File tmp_file = new File((String) kcontext.getVariable(&quot;tmp_dir&quot;)+rand_name);&#xD;
+data = new byte[(int) tmp_file.length()];&#xD;
+FileInputStream file_input_stream = new FileInputStream(tmp_file);&#xD;
+BufferedInputStream buffered_input_stream = new BufferedInputStream(file_input_stream);&#xD;
+buffered_input_stream.read(data);&#xD;
+buffered_input_stream.close();&#xD;
+tmp_file.delete();&#xD;
+kcontext.setVariable(&quot;data&quot;,data);&#xD;
+System.out.println(&quot;done&quot;);</bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_1" drools:priority="1" sourceRef="ScriptTask_2" targetRef="ScriptTask_8"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_2" drools:priority="1" sourceRef="ScriptTask_8" targetRef="ScriptTask_10"/>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="AlterMusic1">
+      <bpmndi:BPMNShape id="BPMNShape_StartEvent_3" bpmnElement="StartEvent_3">
+        <dc:Bounds height="36.0" width="36.0" x="503.0" y="19.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_EndEvent_3" bpmnElement="EndEvent_3">
+        <dc:Bounds height="36.0" width="36.0" x="505.0" y="640.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_2" bpmnElement="ScriptTask_2">
+        <dc:Bounds height="50.0" width="110.0" x="466.0" y="260.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_1" bpmnElement="ScriptTask_1">
+        <dc:Bounds height="66.0" width="126.0" x="458.0" y="160.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_9" bpmnElement="ScriptTask_9">
+        <dc:Bounds height="50.0" width="110.0" x="466.0" y="80.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_10" bpmnElement="ScriptTask_10">
+        <dc:Bounds height="50.0" width="110.0" x="467.0" y="573.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_8" bpmnElement="ScriptTask_8">
+        <dc:Bounds height="50.0" width="110.0" x="469.0" y="410.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_10" bpmnElement="SequenceFlow_10" sourceElement="BPMNShape_StartEvent_3" targetElement="BPMNShape_ScriptTask_9">
+        <di:waypoint xsi:type="dc:Point" x="521.0" y="55.0"/>
+        <di:waypoint xsi:type="dc:Point" x="521.0" y="66.0"/>
+        <di:waypoint xsi:type="dc:Point" x="521.0" y="66.0"/>
+        <di:waypoint xsi:type="dc:Point" x="521.0" y="80.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_15" bpmnElement="SequenceFlow_15" sourceElement="BPMNShape_ScriptTask_10" targetElement="BPMNShape_EndEvent_3">
+        <di:waypoint xsi:type="dc:Point" x="522.0" y="623.0"/>
+        <di:waypoint xsi:type="dc:Point" x="522.0" y="630.0"/>
+        <di:waypoint xsi:type="dc:Point" x="523.0" y="630.0"/>
+        <di:waypoint xsi:type="dc:Point" x="523.0" y="640.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_16" bpmnElement="SequenceFlow_16" sourceElement="BPMNShape_ScriptTask_9" targetElement="BPMNShape_ScriptTask_1">
+        <di:waypoint xsi:type="dc:Point" x="521.0" y="130.0"/>
+        <di:waypoint xsi:type="dc:Point" x="521.0" y="143.0"/>
+        <di:waypoint xsi:type="dc:Point" x="521.0" y="143.0"/>
+        <di:waypoint xsi:type="dc:Point" x="521.0" y="160.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_17" bpmnElement="SequenceFlow_17" sourceElement="BPMNShape_ScriptTask_1" targetElement="BPMNShape_ScriptTask_2">
+        <di:waypoint xsi:type="dc:Point" x="521.0" y="226.0"/>
+        <di:waypoint xsi:type="dc:Point" x="521.0" y="241.0"/>
+        <di:waypoint xsi:type="dc:Point" x="521.0" y="241.0"/>
+        <di:waypoint xsi:type="dc:Point" x="521.0" y="260.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_1" bpmnElement="SequenceFlow_1" sourceElement="BPMNShape_ScriptTask_2" targetElement="BPMNShape_ScriptTask_8">
+        <di:waypoint xsi:type="dc:Point" x="521.0" y="310.0"/>
+        <di:waypoint xsi:type="dc:Point" x="521.0" y="355.0"/>
+        <di:waypoint xsi:type="dc:Point" x="524.0" y="355.0"/>
+        <di:waypoint xsi:type="dc:Point" x="524.0" y="410.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_2" bpmnElement="SequenceFlow_2" sourceElement="BPMNShape_ScriptTask_8" targetElement="BPMNShape_ScriptTask_10">
+        <di:waypoint xsi:type="dc:Point" x="524.0" y="460.0"/>
+        <di:waypoint xsi:type="dc:Point" x="524.0" y="510.0"/>
+        <di:waypoint xsi:type="dc:Point" x="522.0" y="510.0"/>
+        <di:waypoint xsi:type="dc:Point" x="522.0" y="573.0"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>
