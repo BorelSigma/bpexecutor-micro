@@ -129,13 +129,10 @@ int random_number = rand.nextInt(number_of_files);&#xD;
 System.out.println(&quot;Number of files: &quot;+number_of_files+&quot; Random Number is: &quot;+random_number); &#xD;
 kcontext.setVariable(&quot;file_name&quot;, &quot;Eminem_-_My_Name_Is.mid&quot;);
 System.out.println(&quot;filename: &quot; + kcontext.getVariable(&quot;file_name&quot;));&#xD;
-rand = new Random();&#xD;
-channels_value = (rand.nextInt(1))+1;&#xD;
-System.out.println(&quot;Channels = &quot;+channels_value);&#xD;
 kcontext.setVariable(&quot;channels_value&quot;,1);
 System.out.println(&quot;channels_value:&quot; + kcontext.getVariable(&quot;channels_value&quot;));&#xD;
 kcontext.setVariable(&quot;normalize_value&quot;,new Float(0.6));
-System.out.println(&quot;nomralize_value: &quot; + kcontext.getVariable(&quot;normalize_value&quot;));&#xD;
+System.out.println(&quot;normalize_value: &quot; + kcontext.getVariable(&quot;normalize_value&quot;));&#xD;
 kcontext.setVariable(&quot;limiter_value&quot;,new Float(0.4));
 System.out.println(&quot;limiter_value: &quot; + kcontext.getVariable(&quot;limiter_value&quot;));&#xD;
 kcontext.setVariable(&quot;fading_value&quot;,new Float(0.13));
@@ -176,7 +173,7 @@ System.out.println(&quot;done&quot;);</bpmn2:script>
       <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_15</bpmn2:outgoing>
       <bpmn2:script>System.out.println(&quot;write data&quot;);&#xD;
-rand = new Random();&#xD;
+Random rand = new Random();&#xD;
 String tmp = (String) kcontext.getVariable(&quot;output&quot;)+rand.nextInt()+(String)kcontext.getVariable(&quot;file_name&quot;);&#xD;
 file_output_stream = new FileOutputStream(tmp);&#xD;
 buffered_output_stream = new BufferedOutputStream(file_output_stream);&#xD;
