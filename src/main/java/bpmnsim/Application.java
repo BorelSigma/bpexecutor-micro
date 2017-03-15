@@ -1,8 +1,6 @@
 package bpmnsim;
 
 import java.util.Arrays;
-import java.util.Properties;
-
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import org.slf4j.Logger;

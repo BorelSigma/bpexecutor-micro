@@ -39,9 +39,6 @@ public class ProcessService {
         KieSession kieSession = runtimeManager.getRuntimeEngine(null).getKieSession();
         try{
             ProcessInstance instance = kieSession.startProcess(processName);
-            kieSession.setGlobal("input", "./music_files");
-
-
         }catch (Exception e){
             e.printStackTrace();
         }
