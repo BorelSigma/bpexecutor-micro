@@ -24,7 +24,7 @@ public class ProcessController {
 
     @Transactional
     @RequestMapping(value = "/process", method = RequestMethod.POST, produces = "application/json")
-    public void getQuestions(
+    public void execProcess(
             @RequestParam(required = true) String processName) {
 
 
