@@ -38,8 +38,13 @@ public class ProcessService {
 
         KieSession kieSession = runtimeManager.getRuntimeEngine(EmptyContext.get()).getKieSession();
         try{
+            long startTime = System.currentTimeMillis();
             ProcessInstance instance = kieSession.startProcess(processName);
+            long endTime = System.currentTimeMillis();
+            long duration = endTime - startTime;
+            System.out.println(" Instance with ID: " + instance.getId() + " took " + duration + " ms to complete");
         }catch (Exception e){
+
             e.printStackTrace();
         }
         finally {
