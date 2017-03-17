@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Properties>
+
+    </Properties>
+
+    <Appenders>
+        <Console name="Console-Appender" target="SYSTEM_OUT">
+            <PatternLayout>
+                <pattern>
+                    [%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+                </pattern>>
+            </PatternLayout>
+        </Console>
+
+        <File name="File-Appender" fileName="xmlfilelog.log">
+            <PatternLayout>
+                <pattern>
+                    %msg%n
+                </pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+
+    <Loggers>
+
+        <Root>
+            <AppenderRef ref="Console-Appender"/>
+        </Root>
+
+        <Logger name="bpmnsim.ProcessService" level="info" additivity="false">
+            <AppenderRef ref="File-Appender" level="INFO"/>
+        </Logger>
+    </Loggers>
+</Configuration>

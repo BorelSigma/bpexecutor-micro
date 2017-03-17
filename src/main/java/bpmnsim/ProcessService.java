@@ -1,5 +1,7 @@
 package bpmnsim;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.kie.api.KieBase;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
@@ -8,8 +10,6 @@ import org.kie.api.runtime.manager.RuntimeManager;
 import org.kie.api.runtime.manager.RuntimeManagerFactory;
 import org.kie.api.runtime.process.ProcessInstance;
 import org.kie.internal.runtime.manager.context.EmptyContext;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +19,8 @@ import javax.persistence.Persistence;
 @Service
 public class ProcessService {
 
-    private static Logger log = LoggerFactory.getLogger(ProcessService.class);
+
+    private static Logger log = LogManager.getLogger();
 
     private final KieContainer kieContainer;
 
@@ -27,7 +28,6 @@ public class ProcessService {
 
     @Autowired
     public ProcessService(KieContainer kieContainer) {
-        log.info("Initialising a process session.");
         this.kieContainer = kieContainer;
         this.runtimeManager = createRuntimeManager(kieContainer.getKieBase("bpmnProcessKbase"));
     }
@@ -35,14 +35,14 @@ public class ProcessService {
 
 
     public void runProcess(String processName) {
-
+        log.info("Start a process session.");
         KieSession kieSession = runtimeManager.getRuntimeEngine(EmptyContext.get()).getKieSession();
         try{
             long startTime = System.currentTimeMillis();
             ProcessInstance instance = kieSession.startProcess(processName);
             long endTime = System.currentTimeMillis();
             long duration = endTime - startTime;
-            System.out.println(" Instance with ID: " + instance.getId() + " took " + duration + " ms to complete");
+            log.info(instance.getId()+","+duration);
         }catch (Exception e){
 
             e.printStackTrace();
