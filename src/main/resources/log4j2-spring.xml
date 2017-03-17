@@ -13,7 +13,7 @@
             </PatternLayout>
         </Console>
 
-        <File name="File-Appender" fileName="xmlfilelog.log">
+        <File name="File-Appender" fileName="runtimes.log">
             <PatternLayout>
                 <pattern>
                     %msg%n

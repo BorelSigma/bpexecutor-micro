@@ -35,7 +35,6 @@ public class ProcessService {
 
 
     public void runProcess(String processName) {
-        log.info("Start a process session.");
         KieSession kieSession = runtimeManager.getRuntimeEngine(EmptyContext.get()).getKieSession();
         try{
             long startTime = System.currentTimeMillis();
