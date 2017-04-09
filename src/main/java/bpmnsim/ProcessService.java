@@ -22,6 +22,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -51,6 +52,11 @@ public class ProcessService {
 
         try{
             long startTime = System.currentTimeMillis();
+            scheduling.getVariables().forEach((k,v) -> {
+                if(v.getClass() == java.lang.Double.class){
+                    scheduling.getVariables().put(k, BigDecimal.valueOf((Double)v).floatValue());
+                }
+            });
             ProcessInstance instance = kieSession.startProcess(processName, scheduling.getVariables());
             long endTime = System.currentTimeMillis();
             long duration = endTime - startTime;

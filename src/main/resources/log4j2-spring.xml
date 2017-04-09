@@ -13,7 +13,7 @@
             </PatternLayout>
         </Console>
 
-        <File name="File-Appender" fileName="runtimes.log">
+        <File name="File-Appender" fileName="/opt/app/logs/runtimes.log">
             <PatternLayout>
                 <pattern>
                     %msg%n
