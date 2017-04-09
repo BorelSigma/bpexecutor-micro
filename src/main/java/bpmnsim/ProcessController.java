@@ -4,10 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 
 
 @RestController
@@ -18,20 +16,28 @@ public class ProcessController {
     private final ProcessService processService;
 
     @Autowired
-    public ProcessController(ProcessService busPassService) {
-        this.processService  = busPassService;
+    public ProcessController(ProcessService processService) {
+        this.processService  = processService;
     }
 
     @Transactional
-    @RequestMapping(value = "/process", method = RequestMethod.POST, produces = "application/json")
+    @RequestMapping(value = "/process", method = RequestMethod.POST, produces = "application/json", consumes = "application/json")
     public void execProcess(
+            @RequestBody(required = true) ProcessScheduling processScheduling,
             @RequestParam(required = true) String processName) {
-
-
-        log.debug("process "  + processName + " requested");
-
-        processService.runProcess(processName);
+        processService.runProcess(processName, processScheduling);
 
     }
+
+    @RequestMapping(value = "/setprocess", method = RequestMethod.POST, produces = "application/json", consumes = "application/xml")
+    public void setProcess(
+            @RequestBody(required = true) String processModel) {
+        processService.saveProcess(processModel);
+
+    }
+
+
+
+
 
 }
