@@ -18,6 +18,7 @@ import org.kie.internal.builder.KnowledgeBuilderFactory;
 import org.kie.internal.io.ResourceFactory;
 import org.kie.internal.runtime.manager.context.EmptyContext;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManagerFactory;
@@ -25,14 +26,12 @@ import javax.persistence.Persistence;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
-
+import java.util.UUID;
 
 @Service
 public class ProcessService {
 
     private static Logger log = LogManager.getLogger();
-
-    private RuntimeManager runtimeManager;
 
     @Autowired
     private KieContainer kieContainer;
@@ -40,13 +39,18 @@ public class ProcessService {
     @Autowired
     private ProcessRepository repository;
 
+    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("org.jbpm.persistence.jpa");
+
+
     public void runProcess(String processName, ProcessScheduling scheduling) {
+
+
 
         if(repository.getProcessModel() == null){
             System.out.println("process model not set");
             return;
         }
-        this.runtimeManager = createRuntimeManager( repository.getProcessModel());
+        RuntimeManager runtimeManager = createRuntimeManager( repository.getProcessModel());
         KieSession kieSession = runtimeManager.getRuntimeEngine(EmptyContext.get()).getKieSession();
         //kieContainer.getKieBase("bpmnProcessKbase").getProcesses().stream().forEach(p -> System.out.println(p.getId()));
 
@@ -67,6 +71,8 @@ public class ProcessService {
         finally {
             kieSession.dispose();
             runtimeManager.close();
+
+
         }
     }
 
@@ -108,13 +114,12 @@ public class ProcessService {
         KnowledgeBase kbase = KnowledgeBaseFactory.newKnowledgeBase();
         kbase.addKnowledgePackages(kbuilder.getKnowledgePackages());
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("org.jbpm.persistence.jpa");
         RuntimeEnvironmentBuilder builder = RuntimeEnvironmentBuilder.Factory.get()
                 .newDefaultBuilder().entityManagerFactory(emf)
                 .knowledgeBase(kbase).addAsset(ResourceFactory.newByteArrayResource(resource.getBytes()), ResourceType.BPMN2);
 
         return RuntimeManagerFactory.Factory.get()
-                .newPerProcessInstanceRuntimeManager(builder.get(), "com.sample:example:1.0");
+                .newPerProcessInstanceRuntimeManager(builder.get(), UUID.randomUUID().toString() );
 
     }
 
