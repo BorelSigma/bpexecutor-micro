@@ -15,6 +15,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 
 @SpringBootApplication
 public class Application {
@@ -42,6 +45,8 @@ public class Application {
         return KieServices.Factory.get().getKieClasspathContainer();
     }
 
-
-
+    @Bean
+    public EntityManagerFactory getEmf(){
+        return Persistence.createEntityManagerFactory("org.jbpm.persistence.jpa");
+    }
 }

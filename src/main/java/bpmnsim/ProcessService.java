@@ -39,12 +39,14 @@ public class ProcessService {
     @Autowired
     private ProcessRepository repository;
 
-    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("org.jbpm.persistence.jpa");
+    @Autowired
+    private EntityManagerFactory emf;
+
 
 
     public void runProcess(String processName, ProcessScheduling scheduling) {
 
-
+        long currentSessionId = 0;
 
         if(repository.getProcessModel() == null){
             System.out.println("process model not set");
@@ -53,22 +55,24 @@ public class ProcessService {
         RuntimeManager runtimeManager = createRuntimeManager( repository.getProcessModel());
         KieSession kieSession = runtimeManager.getRuntimeEngine(EmptyContext.get()).getKieSession();
         //kieContainer.getKieBase("bpmnProcessKbase").getProcesses().stream().forEach(p -> System.out.println(p.getId()));
-
+        long startTime = System.currentTimeMillis();
         try{
-            long startTime = System.currentTimeMillis();
+
             scheduling.getVariables().forEach((k,v) -> {
                 if(v.getClass() == java.lang.Double.class){
                     scheduling.getVariables().put(k, BigDecimal.valueOf((Double)v).floatValue());
                 }
             });
             ProcessInstance instance = kieSession.startProcess(processName, scheduling.getVariables());
-            long endTime = System.currentTimeMillis();
-            long duration = endTime - startTime;
-            log.info(instance.getId()+","+duration);
+            currentSessionId = instance.getId();
         }catch (Exception e){
             e.printStackTrace();
         }
         finally {
+            long endTime = System.currentTimeMillis();
+            long duration = endTime - startTime;
+            log.info(currentSessionId +","+duration);
+
             kieSession.dispose();
             runtimeManager.close();
 
